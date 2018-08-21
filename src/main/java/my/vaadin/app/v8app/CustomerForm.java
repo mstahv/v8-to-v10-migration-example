@@ -1,5 +1,7 @@
-package my.vaadin.app;
+package my.vaadin.app.v8app;
 
+import my.vaadin.app.data.CustomerStatus;
+import my.vaadin.app.data.CustomerService;
 import com.vaadin.data.Binder;
 import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.ui.Button;
@@ -9,6 +11,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.themes.ValoTheme;
+import my.vaadin.app.data.Customer;
 
 public class CustomerForm extends FormLayout {
 
@@ -22,11 +25,16 @@ public class CustomerForm extends FormLayout {
 
     private CustomerService service = CustomerService.getInstance();
     private Customer customer;
-    private MyUI myUI;
+    private MainUI mainUI;
     private Binder<Customer> binder = new Binder<>(Customer.class);
+    
+    
+    public CustomerForm() {
+        this(null);
+    }
 
-    public CustomerForm(MyUI myUI) {
-        this.myUI = myUI;
+    public CustomerForm(MainUI myUI) {
+        this.mainUI = myUI;
 
         setSizeUndefined();
         HorizontalLayout buttons = new HorizontalLayout(save, delete);
@@ -54,14 +62,19 @@ public class CustomerForm extends FormLayout {
 
     private void delete() {
         service.delete(customer);
-        myUI.updateList();
         setVisible(false);
+        notifyMainView();
     }
 
     private void save() {
         service.save(customer);
-        myUI.updateList();
-        setVisible(false);
+        notifyMainView();
+    }
+    
+    private void notifyMainView() {
+        if(mainUI != null) {
+            mainUI.updateList();
+        }
     }
 
 }

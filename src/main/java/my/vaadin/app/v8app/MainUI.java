@@ -1,5 +1,6 @@
-package my.vaadin.app;
+package my.vaadin.app.v8app;
 
+import my.vaadin.app.data.CustomerService;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
+import my.vaadin.app.data.Customer;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -27,7 +29,7 @@ import com.vaadin.ui.themes.ValoTheme;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
-public class MyUI extends UI {
+public class MainUI extends UI {
     
     private CustomerService service = CustomerService.getInstance();
     private Grid<Customer> grid = new Grid<>(Customer.class);
@@ -89,7 +91,8 @@ public class MyUI extends UI {
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
+    @VaadinServletConfiguration(ui = MainUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
     }
+    
 }
