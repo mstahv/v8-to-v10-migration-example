@@ -1,4 +1,4 @@
-package my.vaadin.app.data.v10app;
+package my.vaadin.app.v10app;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
