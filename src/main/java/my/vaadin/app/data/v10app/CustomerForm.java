@@ -7,13 +7,10 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
-import com.vaadin.flow.router.Route;
-import my.vaadin.app.v8app.*;
 import my.vaadin.app.data.CustomerStatus;
 import my.vaadin.app.data.CustomerService;
 import my.vaadin.app.data.Customer;
 
-@Route
 public class CustomerForm extends VerticalLayout {
 
     private TextField firstName = new TextField("First name");
@@ -44,6 +41,7 @@ public class CustomerForm extends VerticalLayout {
         status.setItems(CustomerStatus.values());
 //        save.setStyleName(ValoTheme.BUTTON_PRIMARY);
 //        save.setClickShortcut(KeyCode.ENTER);
+        save.getElement().getThemeList().add("primary");
 
         binder.bindInstanceFields(this);
 
