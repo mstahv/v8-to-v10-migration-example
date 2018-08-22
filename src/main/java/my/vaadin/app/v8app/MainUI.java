@@ -90,7 +90,7 @@ public class MainUI extends UI {
         grid.setItems(customers);
     }
 
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+    @WebServlet(urlPatterns = {"/v8/*", "/VAADIN/*"}, name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MainUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
     }
