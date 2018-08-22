@@ -3,8 +3,8 @@ package my.vaadin.app.data.v10app;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
-import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
@@ -14,7 +14,7 @@ import my.vaadin.app.data.CustomerService;
 import my.vaadin.app.data.Customer;
 
 @Route
-public class CustomerForm extends FormLayout {
+public class CustomerForm extends VerticalLayout {
 
     private TextField firstName = new TextField("First name");
     private TextField lastName = new TextField("Last name");
