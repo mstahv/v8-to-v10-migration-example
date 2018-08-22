@@ -26,7 +26,7 @@ public class CustomerForm extends VerticalLayout {
 
     private CustomerService service = CustomerService.getInstance();
     private Customer customer;
-    private MainUI mainUI;
+    private MainView mainUI;
     private Binder<Customer> binder = new Binder<>(Customer.class);
     
     
@@ -34,7 +34,7 @@ public class CustomerForm extends VerticalLayout {
         this(null);
     }
 
-    public CustomerForm(MainUI myUI) {
+    public CustomerForm(MainView myUI) {
         this.mainUI = myUI;
 
         setSizeUndefined();
