@@ -9,10 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <name>app</name>
 
-    <prerequisites>
-        <maven>3</maven>
-    </prerequisites>
-
     <properties>
         <!-- The stuff you want for all web app projects -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
